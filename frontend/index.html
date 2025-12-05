@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DBS Citation Tracker — Demo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 30px;
+      animation: slideDown 0.8s ease;
+    }
+
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+      animation: popIn 0.6s ease;
+    }
+
+    section:hover {
+      transform: scale(1.01);
+      box-shadow: 0 6px 22px rgba(0,0,0,0.15);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin-top: 5px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #0077ff;
+      background: #eef6ff;
+      outline: none;
+      box-shadow: 0 0 6px rgba(0,119,255,0.3);
+    }
+
+    button {
+      background: #0077ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0057cc;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th {
+      background: #004aad;
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      transition: 0.3s;
+    }
+
+    tr:hover td {
+      background: #eaf1ff;
+      cursor: pointer;
+    }
+
+    #createResult, #summaryRes {
+      background: #eef6ff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border: 1px solid #cde0ff;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <h1>DBS Academic Citation Tracker — Demo</h1>
+
+  <!-- CREATE SECTION -->
+  <section id="create">
+    <h2>Create Citation</h2>
+
+    <label>Title: <input id="title"></label>
+    <label>Authors (comma separated): <input id="authors"></label>
+    <label>Venue: <input id="venue"></label>
+    <label>Year: <input id="year" type="number"></label>
+    <label>DOI: <input id="doi"></label>
+    <label>Tags: <input id="tags"></label>
+    <label>Notes: <textarea id="notes"></textarea></label>
+
+    <button id="createBtn">Create</button>
+    <div id="createResult"></div>
+  </section>
+
+  <!-- LIST / SEARCH SECTION -->
+  <section id="list">
+    <h2>List / Search</h2>
+
+    <input id="q" placeholder="Search...">
+    <button id="searchBtn">Search</button>
+    <button id="refreshBtn">Refresh</button>
+
+    <table id="results" border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Authors</th>
+          <th>Year</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- REPORT SECTION -->
+  <section id="report">
+    <h2>Report</h2>
+    <button id="getSummary">Get Summary</button>
+    <pre id="summaryRes"></pre>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
