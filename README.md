@@ -50,8 +50,8 @@ Future Enhancements:
 - Pagination and filtering
 - Automated DOI lookup
 
-Author: Khadija Ali
-Student Name: Khadija Ali
-Student ID: 20071069
-Dublin Business School
+Author: Khadija Ali.
+Student Name: Khadija Ali.
+Student ID: 20071069.
+Dublin Business School.
 Module: Programming for information system.
