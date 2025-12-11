@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic==1.10.4   # optional if you want migrations
+pydantic
+pytest
+httpx
+pytest-asyncio
