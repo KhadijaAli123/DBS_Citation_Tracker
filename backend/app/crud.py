@@ -56,3 +56,4 @@ def report_top_authors(db: Session, limit: int = 10):
 
 def total_count(db: Session):
     return db.query(func.count(models.Citation.id)).scalar()
+
